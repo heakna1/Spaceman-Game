@@ -29,9 +29,9 @@ Originally known as Hangman, Spaceman is a game of word guessing and process of 
 
 # Wireframes:
 
-!["Whole Game"](images/WholeGame.png)
+!["Whole Game"](Images/WholeGame.png)
 
-!["Game Screen"](images/GameScreen.png)
+!["Game Screen"](Images/GameScreen.png)
 
 # Pseudocode for MVP:
 
