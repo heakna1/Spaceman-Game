@@ -1,0 +1,17 @@
+body {
+ background-color: black
+}
+
+h1 {
+    color: #873E2A
+}
+
+.main-game-container {
+    width: 600px;
+    background: gray;
+    overflow-y: auto;
+}
+
+.alphabet-list {
+    
+}
