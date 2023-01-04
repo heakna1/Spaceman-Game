@@ -4,68 +4,93 @@ const gameOverButton = document.getElementById("#game-over")
 const landingContainer = document.getElementsByClassName(".landing-container")
 const mainGameContainer = document.getElementsByClassName(".main-game-container")
 const gameOverContainer = document.getElementsByClassName(".game-over-container")
+const outcomeMessage = document.getElementById("#outcome-message")
 
 class Characters {
-    constructor(name, health, icon) {
+    constructor(name, health) {
         this.name = name
         this.health = health
-        this.icon = icon
     }
-
+// Returns the character health after they have taken damage
     takeDamage(incomingDamage) {
         this.health = this.health - incomingDamage
         return this.health
     }
-
+// Checks if the characters are still alive
     isAlive() {
         return this.health > 0
     }
 
 }
 
-const shuffleWords = (words) => {
-    for(let i = words.length - 1; i > 0; i++) {
-
-    }
-}
-
-
-const lonk = new Characters("Lonk", 100,)
-
-const gamon = new Characters("Gamon", 150,)
-
-const words = ["power, wisdom, courage"]
-
+let gameStep = 1
+let word = ""
+//Steps for the cycle of the game
 const gamePlayLoop = () => {
-    let gameStep = 1
-    let word = words
     if(gameStep === 1) {
-        word = pickWord()
+    // User presses start game button
+        word = pickedWord(words)
         gameStep += 1
     } else if(gameStep === 2) {
-        compareUserChoiceToWords(userChoice)
+    // User presses a letter button
+        checkLetter(pickedLetter)
             if(checkIfDead(lonk, gamon)) {
                 gameOver(lonk, gamon)
                 gameStep += 1
             }
     } else {
+    // User presses play again
         reset()
         gameStep = 1
     }
+
+    if(!gamon.isAlive() && lonk) {
+        outcomeMessage.innerText = "You are victorious!"
+    }
+
+    if(gamon.isAlive() && !lonk) {
+        outcomeMessage.innerText = "You have been defeated!"
+    }
 }
 
-const generateList = (res) => {
+const lonk = new Characters("Lonk", 100)
+
+const gamon = new Characters("Gamon", 150)
+
+const words = ["power", "wisdom", "courage", "triforce", "ocarina", "twilight", "hyrule", "skyward", "korok"]
+
+
+// Randomizes word that is chosen for the user to guess
+const pickedWord = (wordsArray) => {
+    const randomIndex = 
+    Math.floor(Math.random() * wordsArray.length)
+    const returnWord = wordsArray[randomIndex]
+    console.log(randomIndex, returnWord)
+    return returnWord
+}
+
+const checkLetter = (letterChoice) => {
+
+}
+
+const generateList = () => {
     alphabetList.innerHTML = ""
 }
+// Replaces letters with span containing underscores
+let displayLetter = letterChoice.replace(/./g, `<span class="dashes">_</span>`)
 
+
+
+// Only shows the start screen and hides the other two screens
 startGameButton.addEventListener("click", () => {
     landingContainer.classList.add("hide")
     mainGameContainer.classList.remove("hide")
     gameOverContainer.classList.remove("hide")
 })
 
-alphabetList.addEventListener("click", () => {
-    mainGameContainer.classList.add("hide")
+// Only shows game over screen and hides the other two screens
+gameOverButton.addEventListener("click", () => {
+    gameOverContainer.classList.add("hide")
     landingContainer.classList.remove("hide")
-    gameOverContainer.classList.remove("hide")
+    mainGameContainer.classList.remove("hide")
 })

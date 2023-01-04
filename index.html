@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./index.css" rel="stylesheet" />
     <script src="./index.js" defer></script>
-    <title>Legend of Helga</title>
+    <title>The Legend of Helga: Spaceman</title>
 </head>
 <body>
-    <div class = "landing-container">
-        <h1>Legend of Helga</h1>
+    <div class = "landing-container hide">
+        <h3>The Legend of</h3>
+        <h1>Helga</h1>
+        <h2>Spaceman</h2>
         <button id="start-game">Play</button>
     </div>
-    <div class="main-game-container hide">
+    <div class="main-game-container">
+        <input type="letter">
         <div class="alphabet-list">
             <button id="a-button">A</button>
             <button id="b-button">B</button>
@@ -42,8 +45,10 @@
             <button id="y-button">Y</button>
             <button id="z-button">Z</button>
         </div>
+        <span class="dashes">_</span>
     </div>
     <div class="game-over-container hide">
+        <div id="outcome-message"></div>
         <button id="game-over">Play Again</button>
     </div>
 </body>
