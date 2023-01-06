@@ -5,6 +5,7 @@ const mainGameContainer = document.getElementsByClassName("main-game-container")
 const gameOverContainer = document.getElementsByClassName("game-over-container")
 const outcomeMessage = document.getElementById("outcome-message")
 const wordDashes = document.getElementsByClassName("dashes") [0]
+const guessesLeft = document.getElementsByClassName("guesses-left-container") [0]
 
 class Characters {
     constructor(name, totalHealth) {
@@ -21,11 +22,11 @@ class Characters {
     isAlive() {
         return this.health > 0
     }
-
 }
 
 let gameStep = 1
 let word = ""
+let currentChoices = 0
 //Steps for the cycle of the game
 const gamePlayLoop = (pickedLetter) => {
     if(gameStep === 1) {
@@ -33,6 +34,11 @@ const gamePlayLoop = (pickedLetter) => {
         word = pickedWord(words)
         generateList()
         generateWord(word)
+        if(currentChoices < word.length) {
+            currentChoices = Math.ceil(word.length * 1.0)
+            guessesLeft.innerHTML = `Wrong Guesses Left: ${currentChoices}`
+        }
+        
         gameStep += 1
     } else if(gameStep === 2) {
     // User presses a letter button
@@ -64,6 +70,26 @@ const pickedWord = (wordsArray) => {
     return returnWord
 }
 
+
+// Checking the letter the user has selected to see if it is in the word that they are guessing. If the letter guessed is correct, Gamon takes damage, if the letter guessed is wrong, Lonk takes damage. Also shows how guesses the player has left
+const checkLetter = (letterChoice) => {
+    const currentWord = word.toUpperCase()
+    if(currentWord.includes(letterChoice)) {
+        const pressedLetter = Array.from(wordDashes.getElementsByClassName(letterChoice.toLowerCase()))
+      for(let i=0; i < pressedLetter.length; i++) {
+        const replaceDashes = document.createElement("span")
+        replaceDashes.innerHTML = letterChoice
+        wordDashes.replaceChild(replaceDashes, pressedLetter[i])
+        const damageTaken = gamon.totalHealth/currentWord.length
+        gamon.takeDamage(damageTaken)
+      }
+    } else {
+        const damageTaken = lonk.totalHealth/Math.ceil(currentWord.length * 1.0)
+        lonk.takeDamage(damageTaken)
+        guessesLeft.innerHTML = `Wrong Guesses Left: ${currentChoices}`
+        currentChoices--
+    }
+}
 
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
