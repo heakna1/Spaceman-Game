@@ -34,27 +34,29 @@ body h2 {
 
 
 .main-game-container {
-    display: grid;
-    grid-template-rows: ;
-    width: 30%;
-    background: gray;
+    background: #F2EBDC;
     overflow-y: auto;
 }
 
-.alphabet-list button{
-    display: grid;
-    grid-template-columns: repeat(20px);
 
+.alphabet-list {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(9, 80px);
+    background-color: black;
+    width: 300px;
+    
 }
 
-.alphabet-list button {
-    height: 100px;
-    width: 100px;
+.alphabet {
     font-size: 50px;
 }
 
-.dashes {
-    
+.dashes span {
+    margin: 5px;
+    font-size: 100px;
+    position: right;
+    color: black;
 }
 
 .game-over-container {
@@ -71,3 +73,9 @@ body h2 {
 .hide {
     display: none;
 }
+
+/* @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  } */

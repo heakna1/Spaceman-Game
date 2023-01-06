@@ -1,15 +1,16 @@
-const startGameButton = document.getElementById("#start-game")
-const alphabetList = document.getElementsByClassName(".alphabet-list")
-const gameOverButton = document.getElementById("#game-over")
-const landingContainer = document.getElementsByClassName(".landing-container")
-const mainGameContainer = document.getElementsByClassName(".main-game-container")
-const gameOverContainer = document.getElementsByClassName(".game-over-container")
-const outcomeMessage = document.getElementById("#outcome-message")
+const startGameButton = document.getElementById("start-game")
+const gameOverButton = document.getElementById("game-over")
+const landingContainer = document.getElementsByClassName("landing-container")
+const mainGameContainer = document.getElementsByClassName("main-game-container")
+const gameOverContainer = document.getElementsByClassName("game-over-container")
+const outcomeMessage = document.getElementById("outcome-message")
+const wordDashes = document.getElementsByClassName("dashes") [0]
 
 class Characters {
-    constructor(name, health) {
+    constructor(name, totalHealth) {
         this.name = name
-        this.health = health
+        this.totalHealth = totalHealth
+        this.health = totalHealth
     }
 // Returns the character health after they have taken damage
     takeDamage(incomingDamage) {
@@ -26,30 +27,24 @@ class Characters {
 let gameStep = 1
 let word = ""
 //Steps for the cycle of the game
-const gamePlayLoop = () => {
+const gamePlayLoop = (pickedLetter) => {
     if(gameStep === 1) {
     // User presses start game button
         word = pickedWord(words)
+        generateList()
+        generateWord(word)
         gameStep += 1
     } else if(gameStep === 2) {
     // User presses a letter button
         checkLetter(pickedLetter)
-            if(checkIfDead(lonk, gamon)) {
-                gameOver(lonk, gamon)
-                gameStep += 1
-            }
+            // if(checkIfDead(lonk, gamon)) {
+            //     gameOver(lonk, gamon)
+            //     gameStep += 1
+            // }
     } else {
     // User presses play again
         reset()
         gameStep = 1
-    }
-
-    if(!gamon.isAlive() && lonk) {
-        outcomeMessage.innerText = "You are victorious!"
-    }
-
-    if(gamon.isAlive() && !lonk) {
-        outcomeMessage.innerText = "You have been defeated!"
     }
 }
 
@@ -69,17 +64,36 @@ const pickedWord = (wordsArray) => {
     return returnWord
 }
 
-const checkLetter = (letterChoice) => {
 
-}
-
+// Creating buttons for each letter that interact with game step 2
 const generateList = () => {
-    alphabetList.innerHTML = ""
+    const generateLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const letterArray = generateLetter.split("")
+    for(i = 0; i < letterArray.length; i++) {
+        const alphabetList = document.getElementsByClassName("alphabet-list") [0]
+        const letterButton = document.createElement("button")
+        letterButton.setAttribute("value", letterArray[i])
+        letterButton.innerHTML = letterArray[i]
+        letterButton.classList.add("alphabet")
+        letterButton.addEventListener("click", (e) => {
+            gamePlayLoop(e.target.value)
+        })
+        alphabetList.appendChild(letterButton)
+    }
 }
-// Replaces letters with span containing underscores
-let displayLetter = letterChoice.replace(/./g, `<span class="dashes">_</span>`)
+// Creating underscores for each letter in word array
+const generateWord = (selectedWord) => { //game step 1
+    const wordArray = selectedWord.split("")
+    for(i = 0; i < wordArray.length; i++) {
+        const generateDashes = document.createElement("span")
+        generateDashes.classList.add(wordArray[i])
+        generateDashes.innerHTML = "_"
+        wordDashes.appendChild(generateDashes)
+    }
 
+}
 
+gamePlayLoop()
 
 // Only shows the start screen and hides the other two screens
 startGameButton.addEventListener("click", () => {
@@ -94,3 +108,12 @@ gameOverButton.addEventListener("click", () => {
     landingContainer.classList.remove("hide")
     mainGameContainer.classList.remove("hide")
 })
+
+//   // Message that appears on the game over screen, letting you know if you won or not
+//   if(!gamon.isAlive() && lonk.isAlive) {
+//     outcomeMessage.innerText = "You are victorious!"
+// }
+
+// if(gamon.isAlive() && !lonk.isAlive) {
+//     outcomeMessage.innerText = "You have been defeated!"
+// }
