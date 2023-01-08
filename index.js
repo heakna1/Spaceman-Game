@@ -96,7 +96,6 @@ const checkLetter = (letterChoice) => {
     }
 }
 
-
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
     alphabetList.innerHTML = ""

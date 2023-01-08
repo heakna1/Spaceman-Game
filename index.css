@@ -75,12 +75,20 @@ body h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width:100%;
+    background-image: url(./Images/Battlefield.png);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    position:relative;
 }
 
-/* #background-image img {
-    width: 100%;  
-} */
-
+.characters {
+    display: flex;
+    flex-direction:row;
+    position: absolute;
+    top: 60%;
+    gap: 60%;
+}
 
 #lonk-heart {
     width: 100px;
@@ -148,60 +156,60 @@ body h2 {
         font-family: "zeldaFont";
         src: url(./Font/Triforce.ttf);
     }
-
+    
     * {
         box-sizing: border-box;
     }
-
+    
     body {
         background-color: #F2EBDC;
         text-align: center;
         max-width: 1600px;
     }
-
+    
     .landing-container {
         background-color: #A68568;
     }
-
+    
     body h3 {
         color: black;
         font-size: 60px;
         font-family: "zeldaFont";
-
+    
     }
-
+    
     body h1 {
         color: #115923;
         font-size: 100px;
         font-family: "zeldaFont";
         letter-spacing: 10px;
-
+    
     }
-
+    
     body h2 {
         color: black;
         font-size: 50px;
         font-family: "zeldaFont";
     }
-
+    
     .landing-container button {
         height: 60px;
         width: 200px;
         font-size: 30px;
     }
-
+    
     .main-game-container {
         display: flexbox;
         flex-direction: row;
         background: #A68568;
         overflow-y: auto;
     }
-
+    
     #letters-and-images {
         display: flex;
         flex-direction: row;
     }
-
+    
     .alphabet-list {
         display: grid;
         grid-template-columns: repeat(3, 100px);
@@ -209,48 +217,54 @@ body h2 {
         background-color: black;
         width: 300px;
     }
-
+    
     .alphabet {
         font-size: 50px;
         font-family: "VT323", monospace;
     }
-
+    
     .game-display-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        width:100%;
+        background-image: url(./Images/Battlefield.png);
+        background-repeat: no-repeat;
+        background-size: 150%;
+        position:relative;
     }
-
-    /* #background-image img {
-    width: 100%;  
-} */
-
-
+    
+    .characters {
+        display: flex;
+        flex-direction:row;
+        position: absolute;
+        top: 60%;
+        gap: 60%;
+    }
+    
     #lonk-heart {
         width: 100px;
     }
-
+    
     #gamon-heart {
         width: 100px;
     }
-
-
+    
     #lonk-image img {
         width: 200px;
     }
-
+    
     #gamon-image img {
         width: 200px;
     }
-
-
+    
     .dashes {
         display: flex;
         flex-direction: row;
         width: auto;
         justify-content: center;
     }
-
+    
     .dashes span {
         display: flex;
         margin: 5px;
@@ -258,28 +272,28 @@ body h2 {
         font-family: "VT323", monospace;
         color: black;
     }
-
+    
     .guesses-left-container {
         font-size: 20px;
         font-family: "Monaco", monospace;
     }
-
+    
     .game-over-container {
         text-align: center;
     }
-
+    
     .game-over-container button {
         height: 60px;
         width: 200px;
         font-size: 30px;
     }
-
+    
     #outcome-message {
         margin: 200px;
         font-size: 100px;
         font-family: "VT323", monospace;
     }
-
+    
     .hide {
         display: none;
     }

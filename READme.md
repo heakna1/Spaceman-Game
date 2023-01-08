@@ -32,7 +32,6 @@ Version 2:
 
 * As the user I want to see Hycule castle in the background
 * As the user I want the words to get harder as the difficulty to goes up
-* As the user I want my health to look like hearts that decrease when I take damage
 
 Version 3:
 
