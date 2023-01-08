@@ -23,7 +23,7 @@ class Characters {
     }
 // Checks if the characters are still alive
     isAlive() {
-        return this.health > 0
+        return Math.floor(this.health) > 0
     }
     resetHealth() {
         this.health = this.totalHealth
@@ -86,7 +86,7 @@ const checkLetter = (letterChoice) => {
         const replaceDashes = document.createElement("span")
         replaceDashes.innerHTML = letterChoice
         wordDashes.replaceChild(replaceDashes, pressedLetter[i])
-        const damageTaken = Math.ceil(gamon.totalHealth/currentWord.length)
+        const damageTaken = gamon.totalHealth/currentWord.length
         gamon.takeDamage(damageTaken)
         heartDiv(gamon, gamonHealth)
       }
