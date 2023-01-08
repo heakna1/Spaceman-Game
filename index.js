@@ -50,13 +50,10 @@ const gamePlayLoop = (pickedLetter) => {
         checkLetter(pickedLetter)
             if(checkIfDead(lonk, gamon)) {
                 gameOverScreen()
-                gameStep += 1
+                currentChoices = 0
+                gameStep = 1
+                word = ""
             }
-    } else {
-    // User presses play again
-        currentChoices = 0
-        gameStep = 1
-        word = ""
     }
 }
 
