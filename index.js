@@ -44,7 +44,6 @@ const gamePlayLoop = (pickedLetter) => {
             currentChoices = Math.ceil(word.length * 1.0)
             guessesLeft.innerHTML = `Wrong Guesses Left: ${currentChoices}`
         }
-        
         gameStep += 1
     } else if(gameStep === 2) {
     // User presses a letter button
@@ -87,7 +86,7 @@ const checkLetter = (letterChoice) => {
         const replaceDashes = document.createElement("span")
         replaceDashes.innerHTML = letterChoice
         wordDashes.replaceChild(replaceDashes, pressedLetter[i])
-        const damageTaken = gamon.totalHealth/currentWord.length
+        const damageTaken = Math.ceil(gamon.totalHealth/currentWord.length)
         gamon.takeDamage(damageTaken)
         heartDiv(gamon, gamonHealth)
       }
