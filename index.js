@@ -102,6 +102,7 @@ const checkLetter = (letterChoice) => {
 
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
+    alphabetList.innerHTML = ""
     const generateLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     const letterArray = generateLetter.split("")
     for(i = 0; i < letterArray.length; i++) {
@@ -119,6 +120,7 @@ const generateList = () => {
 
 // Creating underscores for each letter in word array
 const generateWord = (selectedWord) => { // game step 1
+    wordDashes.innerHTML = ""
     const wordArray = selectedWord.split("")
     for(i = 0; i < wordArray.length; i++) {
         const generateDashes = document.createElement("span")
@@ -169,6 +171,7 @@ restartButton.addEventListener("click", () => {
     gamon.resetHealth()
     heartDiv(lonk, lonkHealth)
     heartDiv(gamon, gamonHealth)
+    gamePlayLoop()
 })
 
 // Only shows the main game screen and hides the start screen
