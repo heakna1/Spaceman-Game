@@ -1,11 +1,13 @@
 const startGameButton = document.getElementById("start-game")
-const gameOverButton = document.getElementById("game-over")
-const landingContainer = document.getElementsByClassName("landing-container")
-const mainGameContainer = document.getElementsByClassName("main-game-container")
-const gameOverContainer = document.getElementsByClassName("game-over-container")
+const restartButton = document.getElementById("restart-button")
+const landingContainer = document.getElementsByClassName("landing-container") [0]
+const mainGameContainer = document.getElementsByClassName("main-game-container") [0]
+const gameOverContainer = document.getElementsByClassName("game-over-container") [0]
 const outcomeMessage = document.getElementById("outcome-message")
 const wordDashes = document.getElementsByClassName("dashes") [0]
 const guessesLeft = document.getElementsByClassName("guesses-left-container") [0]
+const lonkHealth = document.getElementById("lonk-heart")
+const gamonHealth = document.getElementById("gamon-heart")
 
 class Characters {
     constructor(name, totalHealth) {
@@ -21,6 +23,9 @@ class Characters {
 // Checks if the characters are still alive
     isAlive() {
         return this.health > 0
+    }
+    resetHealth() {
+        this.health = this.totalHealth
     }
 }
 
@@ -43,14 +48,15 @@ const gamePlayLoop = (pickedLetter) => {
     } else if(gameStep === 2) {
     // User presses a letter button
         checkLetter(pickedLetter)
-            // if(checkIfDead(lonk, gamon)) {
-            //     gameOver(lonk, gamon)
-            //     gameStep += 1
-            // }
+            if(checkIfDead(lonk, gamon)) {
+                gameOverScreen()
+                gameStep += 1
+            }
     } else {
     // User presses play again
-        reset()
+        currentChoices = 0
         gameStep = 1
+        word = ""
     }
 }
 
@@ -82,14 +88,17 @@ const checkLetter = (letterChoice) => {
         wordDashes.replaceChild(replaceDashes, pressedLetter[i])
         const damageTaken = gamon.totalHealth/currentWord.length
         gamon.takeDamage(damageTaken)
+        heartDiv(gamon, gamonHealth)
       }
     } else {
         const damageTaken = lonk.totalHealth/Math.ceil(currentWord.length * 1.0)
         lonk.takeDamage(damageTaken)
         guessesLeft.innerHTML = `Wrong Guesses Left: ${currentChoices}`
+        heartDiv(lonk, lonkHealth)
         currentChoices--
     }
 }
+
 
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
@@ -107,8 +116,9 @@ const generateList = () => {
         alphabetList.appendChild(letterButton)
     }
 }
+
 // Creating underscores for each letter in word array
-const generateWord = (selectedWord) => { //game step 1
+const generateWord = (selectedWord) => { // game step 1
     const wordArray = selectedWord.split("")
     for(i = 0; i < wordArray.length; i++) {
         const generateDashes = document.createElement("span")
@@ -116,30 +126,55 @@ const generateWord = (selectedWord) => { //game step 1
         generateDashes.innerHTML = "_"
         wordDashes.appendChild(generateDashes)
     }
-
 }
 
-gamePlayLoop()
+//Function to changes heart images when character takes damage
+const heartDiv = (charHealthObj, charHealthImg) => {
+    const healthPercent = charHealthObj.health / charHealthObj.totalHealth
+    if(healthPercent <= 0.75 && healthPercent > 0.50) {
+        charHealthImg.src="Images/3-quarter-heart.png"
+    } else if(healthPercent <= 0.50 && healthPercent > 0.25) {
+        charHealthImg.src="Images/half-heart.png"
+    } else if(healthPercent <= 0.25 && healthPercent > 0) {
+        charHealthImg.src="Images/quarter-heart.png"
+    } else {
+        charHealthImg.src="Images/full-heart.png"
+    }
+        
+}
 
-// Only shows the start screen and hides the other two screens
+  // Message that appears on the game over screen, letting you know if you won or not
+    const checkIfDead = (goodGuy, badGuy) => {
+if(!badGuy.isAlive()) {
+    outcomeMessage.innerText = "You are victorious!"
+    return true
+} else if(!goodGuy.isAlive()) {
+    outcomeMessage.innerText = "You have been defeated!"
+    return true
+} else {
+    return false
+}
+    }
+
+//Function to switch between screens
+const gameOverScreen = () => {
+    gameOverContainer.classList.remove("hide")
+    mainGameContainer.classList.add("hide")
+}
+// Only shows the start screen and hides the game over screen
+restartButton.addEventListener("click", () => {
+    gameOverContainer.classList.add("hide")
+    landingContainer.classList.remove("hide")
+    lonk.resetHealth()
+    gamon.resetHealth()
+    heartDiv(lonk, lonkHealth)
+    heartDiv(gamon, gamonHealth)
+})
+
+// Only shows the main game screen and hides the start screen
 startGameButton.addEventListener("click", () => {
     landingContainer.classList.add("hide")
     mainGameContainer.classList.remove("hide")
-    gameOverContainer.classList.remove("hide")
 })
 
-// Only shows game over screen and hides the other two screens
-gameOverButton.addEventListener("click", () => {
-    gameOverContainer.classList.add("hide")
-    landingContainer.classList.remove("hide")
-    mainGameContainer.classList.remove("hide")
-})
-
-//   // Message that appears on the game over screen, letting you know if you won or not
-//   if(!gamon.isAlive() && lonk.isAlive) {
-//     outcomeMessage.innerText = "You are victorious!"
-// }
-
-// if(gamon.isAlive() && !lonk.isAlive) {
-//     outcomeMessage.innerText = "You have been defeated!"
-// }
+gamePlayLoop()

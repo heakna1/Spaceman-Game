@@ -5,14 +5,12 @@
 body {
     background-color: #F2EBDC;
     text-align: center;
-    height: 100%;
-    width: 100%;
+    width: 1600px;
 }
 
 body h3 {
     color: black;
     font-size: 20px;
-    
 }
 
 body h1 {
@@ -32,12 +30,17 @@ body h2 {
     font-size: 30px;
 }
 
-
 .main-game-container {
+    display: flexbox;
+    flex-direction: row;
     background: #F2EBDC;
     overflow-y: auto;
 }
 
+#letters-and-images {
+    display:flex;
+    flex-direction: row;
+}
 
 .alphabet-list {
     display: grid;
@@ -45,7 +48,6 @@ body h2 {
     grid-template-rows: repeat(9, 80px);
     background-color: black;
     width: 300px;
-    
 }
 
 .alphabet {
@@ -53,11 +55,32 @@ body h2 {
     font-family: "Boots and Spurs", fantasy;
 }
 
+.game-display-container {
+    display: flex;
+    flex-direction:column;
+}
+
+#background-image img {
+    width: 100%;
+    height: 78.7%;  
+}
+
+#lonk-image img {
+    
+}
+
+.dashes {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+}
+
 .dashes span {
+    display: flex;
     margin: 5px;
     font-size: 70px;
     font-family: "Boots and Spurs", fantasy;
-    position: right;
     color: black;
 }
 
@@ -81,8 +104,107 @@ body h2 {
     display: none;
 }
 
-/* @media only screen and (max-width: 600px) {
+@media screen and (max-width: 1600px) {
+   
     body {
-      background-color: lightblue;
+        background-color: #F2EBDC;
+        text-align: center;
+        width: 1400px;
     }
-  } */
+    
+    body h3 {
+        color: black;
+        font-size: 20px;
+    }
+    
+    body h1 {
+        color: #873E2A;
+        font-size: 80px;
+        
+    }
+    
+    body h2 {
+        color: #FFBE00;
+        font-size: 40px;
+    }
+    
+    .landing-container button {
+        height: 60px;
+        width: 200px;
+        font-size: 30px;
+    }
+    
+    .main-game-container {
+        display: flexbox;
+        flex-direction: row;
+        background: #F2EBDC;
+        overflow-y: auto;
+    }
+    
+    #letters-and-images {
+        display:flex;
+        flex-direction: row;
+    }
+    
+    .alphabet-list {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(9, 80px);
+        background-color: black;
+        width: 300px;
+    }
+    
+    .alphabet {
+        font-size: 50px;
+        font-family: "Boots and Spurs", fantasy;
+    }
+    
+    .game-display-container {
+        display: flex;
+        flex-direction:column;
+    }
+    
+    #background-image img {
+        width: 100%;
+        height: 100%;  
+    }
+    
+    #lonk-image img {
+        
+    }
+    
+    .dashes {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        justify-content: center;
+    }
+    
+    .dashes span {
+        display: flex;
+        margin: 5px;
+        font-size: 70px;
+        font-family: "Boots and Spurs", fantasy;
+        color: black;
+    }
+    
+    .guesses-left-container {
+        font-size: 20px;
+        font-family: Monaco, monospace;
+    }
+    
+    .game-over-container {
+        text-align: center;
+    }
+    
+    .game-over-container button {
+        margin: 350px;
+        height: 60px;
+        width: 200px;
+        font-size: 30px;
+    }
+    
+    .hide {
+        display: none;
+  }
+}
