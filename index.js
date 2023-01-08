@@ -8,6 +8,7 @@ const wordDashes = document.getElementsByClassName("dashes") [0]
 const guessesLeft = document.getElementsByClassName("guesses-left-container") [0]
 const lonkHealth = document.getElementById("lonk-heart")
 const gamonHealth = document.getElementById("gamon-heart")
+const alphabetList = document.getElementsByClassName("alphabet-list") [0]
 
 class Characters {
     constructor(name, totalHealth) {
@@ -106,7 +107,6 @@ const generateList = () => {
     const generateLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     const letterArray = generateLetter.split("")
     for(i = 0; i < letterArray.length; i++) {
-        const alphabetList = document.getElementsByClassName("alphabet-list") [0]
         const letterButton = document.createElement("button")
         letterButton.setAttribute("value", letterArray[i])
         letterButton.innerHTML = letterArray[i]
