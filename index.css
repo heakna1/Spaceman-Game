@@ -35,7 +35,7 @@ body h2 {
 .main-game-container {
     display: flexbox;
     flex-direction: row;
-    background: #F2EBDC;
+    background: #A68568;
     overflow-y: auto;
 }
 
@@ -59,17 +59,33 @@ body h2 {
 
 .game-display-container {
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
+    justify-content: center;
 }
 
-#background-image img {
-    width: 100%;
-    height: 78.7%;  
+/* #background-image img {
+    width: 100%;  
+} */
+
+
+#lonk-heart {
+    width: 100px;
 }
+
+#gamon-heart {
+    width: 100px;
+}
+
 
 #lonk-image img {
-    
+    width: 200px;
 }
+
+#gamon-image img {
+    width: 200px;
+}
+
+
 
 .dashes {
     display: flex;
@@ -88,7 +104,7 @@ body h2 {
 
 .guesses-left-container {
     font-size: 20px;
-    font-family: Monaco, monospace;
+    font-family: "Monaco", monospace;
 }
 
 .game-over-container {
@@ -96,10 +112,15 @@ body h2 {
 }
 
 .game-over-container button {
-    margin: 350px;
     height: 60px;
     width: 200px;
     font-size: 30px;
+}
+
+#outcome-message {
+    margin: 200px;
+    font-size: 100px;
+    font-family: "VT323", monospace;
 }
 
 .hide {
@@ -108,10 +129,16 @@ body h2 {
 
 @media screen and (max-width: 1600px) {
    
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    * {
+        box-sizing:border-box;
+    }
+    
     body {
         background-color: #F2EBDC;
         text-align: center;
-        width: 1400px;
+        width: 1600px;
     }
     
     body h3 {
@@ -166,13 +193,25 @@ body h2 {
         flex-direction:column;
     }
     
-    #background-image img {
-        width: 100%;
-        height: 100%;  
-    }
+    /* #background-image img {
+        width: 100%;  
+    } */
     
     #lonk-image img {
-        
+        position: absolute;
+        width: 200px;
+    }
+    
+    #lonk-heart {
+        width: 100px;
+    }
+    
+    #gamon-image img {
+        width: 200px;
+    }
+    
+    #gamon-heart {
+        width: 100px;
     }
     
     .dashes {
@@ -192,21 +231,26 @@ body h2 {
     
     .guesses-left-container {
         font-size: 20px;
-        font-family: Monaco, monospace;
+        font-family: "Monaco", monospace;
     }
     
     .game-over-container {
-        text-align: center;
+        
     }
     
     .game-over-container button {
-        margin: 350px;
         height: 60px;
         width: 200px;
         font-size: 30px;
     }
     
+    #outcome-message {
+        margin: 200px;
+        font-size: 100px;
+        font-family: "VT323", monospace;
+    }
+    
     .hide {
         display: none;
-  }
+    }
 }
