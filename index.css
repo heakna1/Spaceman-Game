@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -18,7 +18,7 @@ body h3 {
 body h1 {
     color: #873E2A;
     font-size: 80px;
-    
+
 }
 
 body h2 {
@@ -40,7 +40,7 @@ body h2 {
 }
 
 #letters-and-images {
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
 
@@ -59,7 +59,7 @@ body h2 {
 
 .game-display-container {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
 }
 
@@ -128,53 +128,53 @@ body h2 {
 }
 
 @media screen and (max-width: 1600px) {
-   
+
     @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
     * {
-        box-sizing:border-box;
+        box-sizing: border-box;
     }
-    
+
     body {
         background-color: #F2EBDC;
         text-align: center;
         width: 1600px;
     }
-    
+
     body h3 {
         color: black;
         font-size: 20px;
     }
-    
+
     body h1 {
         color: #873E2A;
         font-size: 80px;
-        
+
     }
-    
+
     body h2 {
         color: #FFBE00;
         font-size: 40px;
     }
-    
+
     .landing-container button {
         height: 60px;
         width: 200px;
         font-size: 30px;
     }
-    
+
     .main-game-container {
         display: flexbox;
         flex-direction: row;
-        background: #F2EBDC;
+        background: #A68568;
         overflow-y: auto;
     }
-    
+
     #letters-and-images {
-        display:flex;
+        display: flex;
         flex-direction: row;
     }
-    
+
     .alphabet-list {
         display: grid;
         grid-template-columns: repeat(3, 100px);
@@ -182,45 +182,46 @@ body h2 {
         background-color: black;
         width: 300px;
     }
-    
+
     .alphabet {
         font-size: 50px;
         font-family: "VT323", monospace;
     }
-    
+
     .game-display-container {
         display: flex;
-        flex-direction:column;
+        flex-direction: row;
+        justify-content: center;
     }
-    
+
     /* #background-image img {
-        width: 100%;  
-    } */
-    
-    #lonk-image img {
-        position: absolute;
-        width: 200px;
-    }
-    
+    width: 100%;  
+} */
+
     #lonk-heart {
         width: 100px;
     }
-    
-    #gamon-image img {
-        width: 200px;
-    }
-    
+
     #gamon-heart {
         width: 100px;
     }
-    
+
+
+    #lonk-image img {
+        width: 200px;
+    }
+
+    #gamon-image img {
+        width: 200px;
+    }
+
     .dashes {
         display: flex;
         flex-direction: row;
         width: auto;
         justify-content: center;
     }
-    
+
     .dashes span {
         display: flex;
         margin: 5px;
@@ -228,28 +229,28 @@ body h2 {
         font-family: "VT323", monospace;
         color: black;
     }
-    
+
     .guesses-left-container {
         font-size: 20px;
         font-family: "Monaco", monospace;
     }
-    
+
     .game-over-container {
-        
+        text-align: center;
     }
-    
+
     .game-over-container button {
         height: 60px;
         width: 200px;
         font-size: 30px;
     }
-    
+
     #outcome-message {
         margin: 200px;
         font-size: 100px;
         font-family: "VT323", monospace;
     }
-    
+
     .hide {
         display: none;
     }
