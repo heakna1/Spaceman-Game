@@ -91,6 +91,13 @@ body h2 {
     left: 20%;
 }
 
+.lonk {
+    position:relative
+}
+
+.gamon {
+    position:relative
+}
 #lonk-heart {
     width: 100px;
 }
@@ -98,7 +105,6 @@ body h2 {
 #gamon-heart {
     width: 100px;
 }
-
 
 #lonk-image img {
     width: 200px;
@@ -108,6 +114,13 @@ body h2 {
     width: 200px;
 }
 
+.name {
+    font-size: 30px;
+    font-family: "zeldaFont";
+    position: absolute;
+    left: 30%;
+    bottom: 93%;
+}
 
 .dashes {
     display: flex;
@@ -260,6 +273,10 @@ body h2 {
         width: 200px;
     }
     
+    .name {
+        font-size: 40%;
+    }
+
     .dashes {
         display: flex;
         flex-direction: row;
