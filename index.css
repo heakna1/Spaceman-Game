@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+@font-face {
+    font-family: "zeldaFont";
+    src: url(./Font/Triforce.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,23 +12,32 @@
 body {
     background-color: #F2EBDC;
     text-align: center;
-    width: 1600px;
+    max-width: 1600px;
+}
+
+.landing-container {
+    background-color: #A68568;
 }
 
 body h3 {
     color: black;
-    font-size: 20px;
+    font-size: 60px;
+    font-family: "zeldaFont";
+
 }
 
 body h1 {
-    color: #873E2A;
-    font-size: 80px;
+    color: #115923;
+    font-size: 100px;
+    font-family: "zeldaFont";
+    letter-spacing: 10px;
 
 }
 
 body h2 {
-    color: #FFBE00;
-    font-size: 40px;
+    color: black;
+    font-size: 50px;
+    font-family: "zeldaFont";
 }
 
 .landing-container button {
@@ -86,7 +100,6 @@ body h2 {
 }
 
 
-
 .dashes {
     display: flex;
     flex-direction: row;
@@ -131,6 +144,11 @@ body h2 {
 
     @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+    @font-face {
+        font-family: "zeldaFont";
+        src: url(./Font/Triforce.ttf);
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -138,23 +156,32 @@ body h2 {
     body {
         background-color: #F2EBDC;
         text-align: center;
-        width: 1600px;
+        max-width: 1600px;
+    }
+
+    .landing-container {
+        background-color: #A68568;
     }
 
     body h3 {
         color: black;
-        font-size: 20px;
+        font-size: 60px;
+        font-family: "zeldaFont";
+
     }
 
     body h1 {
-        color: #873E2A;
-        font-size: 80px;
+        color: #115923;
+        font-size: 100px;
+        font-family: "zeldaFont";
+        letter-spacing: 10px;
 
     }
 
     body h2 {
-        color: #FFBE00;
-        font-size: 40px;
+        color: black;
+        font-size: 50px;
+        font-family: "zeldaFont";
     }
 
     .landing-container button {
@@ -198,6 +225,7 @@ body h2 {
     width: 100%;  
 } */
 
+
     #lonk-heart {
         width: 100px;
     }
@@ -214,6 +242,7 @@ body h2 {
     #gamon-image img {
         width: 200px;
     }
+
 
     .dashes {
         display: flex;
