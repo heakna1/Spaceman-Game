@@ -132,13 +132,13 @@ const generateWord = (selectedWord) => { // game step 1
 const heartDiv = (charHealthObj, charHealthImg) => {
     const healthPercent = charHealthObj.health / charHealthObj.totalHealth
     if(healthPercent <= 0.75 && healthPercent > 0.50) {
-        charHealthImg.src="Images/3-quarter-heart.png"
+        charHealthImg.src="./Images/3-quarter-heart.png"
     } else if(healthPercent <= 0.50 && healthPercent > 0.25) {
-        charHealthImg.src="Images/half-heart.png"
+        charHealthImg.src="./Images/half-heart.png"
     } else if(healthPercent <= 0.25 && healthPercent > 0) {
-        charHealthImg.src="Images/quarter-heart.png"
+        charHealthImg.src="./Images/quarter-heart.png"
     } else {
-        charHealthImg.src="Images/full-heart.png"
+        charHealthImg.src="./Images/full-heart.png"
     }
         
 }
