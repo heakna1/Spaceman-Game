@@ -23,6 +23,7 @@ body h3 {
     color: black;
     font-size: 60px;
     font-family: "zeldaFont";
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 
 }
 
@@ -31,6 +32,7 @@ body h1 {
     font-size: 100px;
     font-family: "zeldaFont";
     letter-spacing: 10px;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 
 }
 
@@ -38,6 +40,7 @@ body h2 {
     color: black;
     font-size: 50px;
     font-family: "zeldaFont";
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
 .landing-container button {
@@ -75,16 +78,16 @@ body h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width:100%;
+    width: 100%;
     background-image: url(./Images/Battlefield.png);
     background-repeat: no-repeat;
     background-size: 150%;
-    position:relative;
+    position: relative;
 }
 
 .characters {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     position: absolute;
     top: 60%;
     gap: 60%;
@@ -92,18 +95,19 @@ body h2 {
 }
 
 .lonk {
-    position:relative
+    position: relative
 }
 
 .gamon {
-    position:relative
+    position: relative
 }
+
 #lonk-heart {
-    width: 100px;
+    width: 80px;
 }
 
 #gamon-heart {
-    width: 100px;
+    width: 80px;
 }
 
 #lonk-image img {
@@ -138,7 +142,7 @@ body h2 {
 }
 
 .guesses-left-container {
-    font-size: 50px;
+    font-size: 40px;
     font-family: "Monaco", monospace;
 }
 
@@ -150,12 +154,15 @@ body h2 {
     height: 60px;
     width: 200px;
     font-size: 30px;
+    color: white;
+    background-color: black;
 }
 
 #outcome-message {
     margin: 200px;
     font-size: 100px;
     font-family: "zeldaFont";
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
 .hide {
@@ -166,169 +173,174 @@ body h2 {
 
     @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-@font-face {
-    font-family: "zeldaFont";
-    src: url(./Font/Triforce.ttf);
-}
+    @font-face {
+        font-family: "zeldaFont";
+        src: url(./Font/Triforce.ttf);
+    }
 
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    background-color: #F2EBDC;
-    text-align: center;
-    max-width: 1600px;
-}
+    body {
+        background-color: #F2EBDC;
+        text-align: center;
+        max-width: 1600px;
+    }
 
-.landing-container {
-    background-color: #A68568;
-}
+    .landing-container {
+        background-color: #A68568;
+    }
 
-body h3 {
-    color: black;
-    font-size: 60px;
-    font-family: "zeldaFont";
+    body h3 {
+        color: black;
+        font-size: 60px;
+        font-family: "zeldaFont";
+        text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    }
 
-}
+    body h1 {
+        color: #115923;
+        font-size: 100px;
+        font-family: "zeldaFont";
+        letter-spacing: 10px;
+        text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    }
 
-body h1 {
-    color: #115923;
-    font-size: 100px;
-    font-family: "zeldaFont";
-    letter-spacing: 10px;
+    body h2 {
+        color: black;
+        font-size: 50px;
+        font-family: "zeldaFont";
+        text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    }
 
-}
+    .landing-container button {
+        height: 60px;
+        width: 200px;
+        font-size: 30px;
+    }
 
-body h2 {
-    color: black;
-    font-size: 50px;
-    font-family: "zeldaFont";
-}
+    .main-game-container {
+        display: flexbox;
+        flex-direction: row;
+        background: #A68568;
+        overflow-y: auto;
+    }
 
-.landing-container button {
-    height: 60px;
-    width: 200px;
-    font-size: 30px;
-}
+    #letters-and-images {
+        display: flex;
+        flex-direction: row;
+    }
 
-.main-game-container {
-    display: flexbox;
-    flex-direction: row;
-    background: #A68568;
-    overflow-y: auto;
-}
+    .alphabet-list {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(9, 80px);
+        background-color: black;
+        width: 300px;
+    }
 
-#letters-and-images {
-    display: flex;
-    flex-direction: row;
-}
+    .alphabet {
+        font-size: 50px;
+        font-family: "VT323", monospace;
+    }
 
-.alphabet-list {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(9, 80px);
-    background-color: black;
-    width: 300px;
-}
+    .wrongLetter {
+        color: gray;
+    }
 
-.alphabet {
-    font-size: 50px;
-    font-family: "VT323", monospace;
-}
+    .game-display-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        background-image: url(./Images/Battlefield.png);
+        background-repeat: no-repeat;
+        background-size: 150%;
+        position: relative;
+    }
 
-.wrongLetter {
-    color: gray;
-}
+    .characters {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 60%;
+        gap: 60%;
+        left: 20%;
+    }
 
-.game-display-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width:100%;
-    background-image: url(./Images/Battlefield.png);
-    background-repeat: no-repeat;
-    background-size: 150%;
-    position:relative;
-}
+    .lonk {
+        position: relative
+    }
 
-.characters {
-    display: flex;
-    flex-direction:row;
-    position: absolute;
-    top: 60%;
-    gap: 60%;
-    left: 20%;
-}
+    .gamon {
+        position: relative
+    }
 
-.lonk {
-    position:relative
-}
+    #lonk-heart {
+        width: 80px;
+    }
 
-.gamon {
-    position:relative
-}
-#lonk-heart {
-    width: 100px;
-}
+    #gamon-heart {
+        width: 80px;
+    }
 
-#gamon-heart {
-    width: 100px;
-}
+    #lonk-image img {
+        width: 200px;
+    }
 
-#lonk-image img {
-    width: 200px;
-}
+    #gamon-image img {
+        width: 200px;
+    }
 
-#gamon-image img {
-    width: 200px;
-}
+    .name {
+        font-size: 30px;
+        font-family: "zeldaFont";
+        position: absolute;
+        left: 30%;
+        bottom: 93%;
+    }
 
-.name {
-    font-size: 30px;
-    font-family: "zeldaFont";
-    position: absolute;
-    left: 30%;
-    bottom: 93%;
-}
+    .dashes {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        justify-content: center;
+    }
 
-.dashes {
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    justify-content: center;
-}
+    .dashes span {
+        display: flex;
+        margin: 5px;
+        font-size: 80px;
+        font-family: "VT323", monospace;
+        color: black;
+    }
 
-.dashes span {
-    display: flex;
-    margin: 5px;
-    font-size: 80px;
-    font-family: "VT323", monospace;
-    color: black;
-}
+    .guesses-left-container {
+        font-size: 30px;
+        font-family: "Monaco", monospace;
+    }
 
-.guesses-left-container {
-    font-size: 30px;
-    font-family: "Monaco", monospace;
-}
+    .game-over-container {
+        text-align: center;
+    }
 
-.game-over-container {
-    text-align: center;
-}
+    .game-over-container button {
+        height: 60px;
+        width: 200px;
+        font-size: 30px;
+        color: white;
+        background-color: black;
+    }
 
-.game-over-container button {
-    height: 60px;
-    width: 200px;
-    font-size: 30px;
-}
+    #outcome-message {
+        margin: 200px;
+        font-size: 100px;
+        font-family: "zeldaFont";
+        text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    }
 
-#outcome-message {
-    margin: 200px;
-    font-size: 100px;
-    font-family: "zeldaFont";
-}
-
-.hide {
-    display: none;
-}
+    .hide {
+        display: none;
+    }
 }

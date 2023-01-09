@@ -33,7 +33,7 @@ class Characters {
 let gameStep = 1
 let word = ""
 let currentChoices = 0
-//Steps for the cycle of the game
+// Steps for the cycle of the game
 const gamePlayLoop = (pickedLetter) => {
     if (gameStep === 1) {
         // User presses start game button
@@ -74,7 +74,7 @@ const pickedWord = (wordsArray) => {
 }
 
 
-// Checking the letter the user has selected to see if it is in the word that they are guessing. If the letter guessed is correct, Gamon takes damage, if the letter guessed is wrong, Lonk takes damage. Also shows how guesses the player has left
+// Checking the letter the user has selected to see if it is in the word that they are guessing. If the letter guessed is correct, Gamon takes damage, if the letter guessed is wrong, Lonk takes damage. Also shows how many guesses the player has left.
 const checkLetter = (letterChoice) => {
     const grayLetter = document.querySelector(`#${letterChoice}`)
     const currentWord = word.toUpperCase()
@@ -131,7 +131,7 @@ const generateWord = (selectedWord) => { // game step 1
     }
 }
 
-//Function to changes heart images when character takes damage
+// Function to change heart images when character takes damage
 const heartDiv = (charHealthObj, charHealthImg) => {
     const healthPercent = charHealthObj.health / charHealthObj.totalHealth
     if (healthPercent <= 0.75 && healthPercent > 0.50) {
@@ -143,10 +143,9 @@ const heartDiv = (charHealthObj, charHealthImg) => {
     } else {
         charHealthImg.src = "./Images/full-heart.png"
     }
-
 }
 
-// Message that appears on the game over screen, letting you know if you won or not
+// Message that appears on the game over screen, letting you know if you won or lost
 const checkIfDead = (goodGuy, badGuy) => {
     if (!badGuy.isAlive()) {
         outcomeMessage.innerText = "You are victorious!"
@@ -159,7 +158,7 @@ const checkIfDead = (goodGuy, badGuy) => {
     }
 }
 
-//Function to switch between screens
+// Function to switch between screens
 const gameOverScreen = () => {
     gameOverContainer.classList.remove("hide")
     mainGameContainer.classList.add("hide")
