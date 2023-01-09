@@ -13,6 +13,7 @@ The following technology was used in order to create The Legend of Helga Spacema
 * JavaScript
 * HTML
 * CSS
+* Photopea
 
 ## Getting Started
 
