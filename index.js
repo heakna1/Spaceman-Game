@@ -76,6 +76,7 @@ const pickedWord = (wordsArray) => {
 
 // Checking the letter the user has selected to see if it is in the word that they are guessing. If the letter guessed is correct, Gamon takes damage, if the letter guessed is wrong, Lonk takes damage. Also shows how guesses the player has left
 const checkLetter = (letterChoice) => {
+    const grayLetter = document.querySelector(`#${letterChoice}`)
     const currentWord = word.toUpperCase()
     if (currentWord.includes(letterChoice)) {
         const pressedLetter = Array.from(wordDashes.getElementsByClassName(letterChoice.toLowerCase()))
@@ -87,14 +88,18 @@ const checkLetter = (letterChoice) => {
             gamon.takeDamage(damageTaken)
             heartDiv(gamon, gamonHealth)
         }
+
     } else {
         const damageTaken = lonk.totalHealth / Math.ceil(currentWord.length * 1.5)
         lonk.takeDamage(damageTaken)
         guessesLeft.innerHTML = `Wrong Guesses Left: ${currentChoices}`
         heartDiv(lonk, lonkHealth)
+        grayLetter.classList.add("wrongLetter")
+        grayLetter.disabled = true
         currentChoices--
     }
 }
+
 
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
@@ -104,6 +109,7 @@ const generateList = () => {
     for (i = 0; i < letterArray.length; i++) {
         const letterButton = document.createElement("button")
         letterButton.setAttribute("value", letterArray[i])
+        letterButton.setAttribute("id", letterArray[i])
         letterButton.innerHTML = letterArray[i]
         letterButton.classList.add("alphabet")
         letterButton.addEventListener("click", (e) => {
