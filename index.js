@@ -63,7 +63,6 @@ const gamon = new Characters("Gamon", 150)
 
 const words = ["power", "wisdom", "courage", "triforce", "ocarina", "twilight", "hyrule", "skyward", "korok"]
 
-
 // Randomizes word that is chosen for the user to guess
 const pickedWord = (wordsArray) => {
     const randomIndex =
@@ -72,7 +71,6 @@ const pickedWord = (wordsArray) => {
     console.log(randomIndex, returnWord)
     return returnWord
 }
-
 
 // Checking the letter the user has selected to see if it is in the word that they are guessing. If the letter guessed is correct, Gamon takes damage, if the letter guessed is wrong, Lonk takes damage. Also shows how many guesses the player has left.
 const checkLetter = (letterChoice) => {
@@ -99,7 +97,6 @@ const checkLetter = (letterChoice) => {
         currentChoices--
     }
 }
-
 
 // Creating buttons for each letter that interact with game step 2
 const generateList = () => {
