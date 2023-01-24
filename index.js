@@ -10,13 +10,13 @@ const lonkHealth = document.getElementById("lonk-heart")
 const gamonHealth = document.getElementById("gamon-heart")
 const alphabetList = document.getElementsByClassName("alphabet-list")[0]
 
-class Characters {
+class Characters { // should be singular 
     constructor(name, totalHealth) {
         this.name = name
         this.totalHealth = totalHealth
         this.health = totalHealth
     }
-    // Returns the character health after they have taken damage
+    // Returns the character health after they have taken damage // good comment! love that you list what the return is, 
     takeDamage(incomingDamage) {
         this.health = this.health - incomingDamage
         return this.health
@@ -29,13 +29,13 @@ class Characters {
         this.health = this.totalHealth
     }
 }
-
-let gameStep = 1
+// global variables should be grouped together at top of file
+let gameStep = 1 // creative solution to handling your app states
 let word = ""
 let currentChoices = 0
 // Steps for the cycle of the game
-const gamePlayLoop = (pickedLetter) => {
-    if (gameStep === 1) {
+const gamePlayLoop = (pickedLetter) => { // we should consider breaking the function up here up to follow the functional programming paradigm : 'a function should do 1 thing and do it well'
+    if (gameStep === 1) {// following the idea of 37 - initializeGame ? setGame ? etc
         // User presses start game button
         word = pickedWord(words)
         generateList()
@@ -56,15 +56,15 @@ const gamePlayLoop = (pickedLetter) => {
         }
     }
 }
-
+// see 32
 const lonk = new Characters("Lonk", 100)
 
 const gamon = new Characters("Gamon", 150)
-
+// 'magic array' like magic number variables can be allcaps : WORDS
 const words = ["power", "wisdom", "courage", "triforce", "ocarina", "twilight", "hyrule", "skyward", "korok"]
 
 // Randomizes word that is chosen for the user to guess
-const pickedWord = (wordsArray) => {
+const pickedWord = (wordsArray) => { // past tense makes it seem like this variable should hold the word value, not the function that picks it ( remember that functions should have present tense verbs in the name )
     const randomIndex =
         Math.floor(Math.random() * wordsArray.length)
     const returnWord = wordsArray[randomIndex]
@@ -77,7 +77,7 @@ const checkLetter = (letterChoice) => {
     const grayLetter = document.querySelector(`#${letterChoice}`)
     const currentWord = word.toUpperCase()
     if (currentWord.includes(letterChoice)) {
-        const pressedLetter = Array.from(wordDashes.getElementsByClassName(letterChoice.toLowerCase()))
+        const pressedLetter = Array.from(wordDashes.getElementsByClassName(letterChoice.toLowerCase())) // nice use of Array constructor
         for (let i = 0; i < pressedLetter.length; i++) {
             const replaceDashes = document.createElement("span")
             replaceDashes.innerHTML = letterChoice
@@ -99,10 +99,10 @@ const checkLetter = (letterChoice) => {
 }
 
 // Creating buttons for each letter that interact with game step 2
-const generateList = () => {
+const generateList = () => { // generate what list ? 
     alphabetList.innerHTML = ""
-    const generateLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const letterArray = generateLetter.split("")
+    const generateLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" // see 63 // generate is a verb -> makes me think this is a function not 'magic' array 
+    const letterArray = generateLetter.split("") // nice use of split // great name
     for (i = 0; i < letterArray.length; i++) {
         const letterButton = document.createElement("button")
         letterButton.setAttribute("value", letterArray[i])
@@ -117,7 +117,7 @@ const generateList = () => {
 }
 
 // Creating underscores for each letter in word array
-const generateWord = (selectedWord) => { // game step 1
+const generateWord = (selectedWord) => { // game step 1 // name is ambiguous , generateWordBlanks ? 
     wordDashes.innerHTML = ""
     const wordArray = selectedWord.split("")
     for (i = 0; i < wordArray.length; i++) {
@@ -129,7 +129,7 @@ const generateWord = (selectedWord) => { // game step 1
 }
 
 // Function to change heart images when character takes damage
-const heartDiv = (charHealthObj, charHealthImg) => {
+const heartDiv = (charHealthObj, charHealthImg) => {// function name reads as a cached Dom element not a function - consider renderHeartDiv, draw, display, update, etc. ( include a verb, like in 67 )
     const healthPercent = charHealthObj.health / charHealthObj.totalHealth
     if (healthPercent <= 0.75 && healthPercent > 0.50) {
         charHealthImg.src = "./Images/3-quarter-heart.png"
@@ -156,7 +156,7 @@ const checkIfDead = (goodGuy, badGuy) => {
 }
 
 // Function to switch between screens
-const gameOverScreen = () => {
+const gameOverScreen = () => {// see 132 + 67
     gameOverContainer.classList.remove("hide")
     mainGameContainer.classList.add("hide")
 }
